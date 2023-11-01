@@ -1,3 +1,10 @@
+//Code pour les virage court et long et pour la detection/realisation du shortcut
+
+
+
+
+
+
 #include <Arduino.h>
 #include <LibRobus.h>
 
@@ -6,6 +13,8 @@
 
 #define MAX_RIGHTshort 8827
 #define MAX_LEFTshort 12800
+
+int distanceShortCut = 0;
 
 
 
@@ -86,6 +95,41 @@ void shortTurn()
 	MOTOR_SetSpeed(RIGHT, 0);
 	MOTOR_SetSpeed(LEFT, 0);
 }
+
+int detShortCut()
+{
+
+	// distanceShortCut = convertDistanceIR(0);
+
+	if(distanceShortCut >= 70)
+	{
+		return 1;
+ 	}
+
+ 	else
+ 	{
+		return 0;
+ 	}
+}
+
+
+void shortCut()
+{
+	// turn RIGHT
+	int b, r, g, c;
+
+	while(b > r && b > g)
+	{
+		//movefoward
+		//tcs.getRawData(&r, &g, &b, &c);
+
+	}
+
+	//turn RIGHT
+	// Continue le parcours
+
+}
+
 
 
 void setup()
