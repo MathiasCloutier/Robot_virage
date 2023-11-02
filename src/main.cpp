@@ -15,9 +15,6 @@
 #define MAX_LEFTshort 12800
 
 int distanceShortCut = 0;
-
-
-
 #define NB_SECTIONS 10
 
 void largeTurn()
@@ -96,37 +93,24 @@ void shortTurn()
 	MOTOR_SetSpeed(LEFT, 0);
 }
 
-int detShortCut()
-{
-
-	// distanceShortCut = convertDistanceIR(0);
-
-	if(distanceShortCut >= 70)
-	{
-		return 1;
- 	}
-
- 	else
- 	{
-		return 0;
- 	}
-}
-
-
 void shortCut()
 {
-	// turn RIGHT
-	int b, r, g, c;
 
-	while(b > r && b > g)
+	//distanceShortCut = convertDistanceIR(0);
+
+	if(distanceShortCut >= 15)
 	{
-		//movefoward
-		//tcs.getRawData(&r, &g, &b, &c);
+		MOTOR_SetSpeed(RIGHT, 0.30);
+		MOTOR_SetSpeed(LEFT, 0.4);
 
 	}
 
-	//turn RIGHT
-	// Continue le parcours
+	else if(distanceShortCut <= 10)
+	{
+		MOTOR_SetSpeed(RIGHT, 0.4);
+		MOTOR_SetSpeed(LEFT, 0.30);
+	}
+
 
 }
 
